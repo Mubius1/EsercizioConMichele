@@ -1,5 +1,5 @@
 <app-navbar (showBook)="showForm($event)"></app-navbar>
 <div [ngClass]="{'show': formStatus == true, 'noshow': formStatus == false}">
-    <app-book-create></app-book-create>
+    <app-book-create (createBookEvent)="createBook($event)"></app-book-create>
 </div>
 <app-book-list [books]="books"></app-book-list>

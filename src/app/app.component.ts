@@ -23,5 +23,9 @@ export class AppComponent {
       prezzo: 20
     }
   ]
+
+  createBook(book: Book){
+    this.books.push(book);
+  }
 }
 

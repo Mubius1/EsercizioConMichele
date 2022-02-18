@@ -1,4 +1,5 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { Book } from '../models/Book';
 
 @Component({
   selector: 'app-book-create',
@@ -7,6 +8,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 })
 export class BookCreateComponent implements OnInit {
   @ViewChild('mioForm') form!:any;
+  @Output() createBookEvent = new EventEmitter<Book>();
   constructor() { }
 
   ngOnInit(): void {
@@ -18,7 +20,8 @@ export class BookCreateComponent implements OnInit {
     'giallo'
   ]
   submitform(){
-   console.log(this.form.value)
+   console.log(this.form.value);
+   this.createBookEvent.emit(this.form.value);
   }
 }
 
