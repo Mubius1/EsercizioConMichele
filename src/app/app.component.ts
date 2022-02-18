@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Book } from './models/Book';
 
 @Component({
   selector: 'app-root',
@@ -12,5 +13,15 @@ export class AppComponent {
   showForm(x: boolean){
     this.formStatus = x;
   }
+
+  books:Book []=[
+    {
+      titolo: "titolo a caso",
+      autore: "salvo",
+      casaEditrice: "sanpaolo",
+      genere: "giallo",
+      prezzo: 20
+    }
+  ]
 }
 

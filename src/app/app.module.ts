@@ -5,12 +5,14 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { BookCreateComponent } from './book-create/book-create.component';
+import { BookListComponent } from './book-list/book-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    BookCreateComponent
+    BookCreateComponent,
+    BookListComponent
   ],
   imports: [
     BrowserModule,

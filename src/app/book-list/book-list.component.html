@@ -1,0 +1,24 @@
+<table>
+    <thead>
+        <tr>
+            <th>Titolo</th>
+            <th>Autore</th>
+            <th>Casa Editrice</th>
+            <th>Genere</th>
+            <th>Prezzo</th>
+            <th>Azioni</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let book of books">
+            <td>{{book.titolo}}</td>
+            <td>{{book.autore}}</td>
+            <td>{{book.casaEditrice}}</td>
+            <td>{{book.genere}}</td>
+            <td>{{book.prezzo}}</td>
+            <td>
+                <button>Elimina</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
