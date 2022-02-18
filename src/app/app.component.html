@@ -1,2 +1,4 @@
-<app-navbar></app-navbar>
-<app-book-create></app-book-create>
+<app-navbar (showBook)="showForm($event)"></app-navbar>
+<div [ngClass]="{'show': formStatus == true, 'noshow': formStatus == false}">
+    <app-book-create></app-book-create>
+</div>
