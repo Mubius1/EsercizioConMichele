@@ -27,5 +27,11 @@ export class AppComponent {
   createBook(book: Book){
     this.books.push(book);
   }
+
+  deleteBook(book: Book){
+    let index = this.books.indexOf(book);
+    this.books.splice(index, 1);
+
+  }
 }
 

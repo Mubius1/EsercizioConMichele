@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Book } from '../models/Book';
 
 @Component({
@@ -8,9 +8,14 @@ import { Book } from '../models/Book';
 })
 export class BookListComponent implements OnInit {
   @Input() books!:Book[];
+  @Output() deleteBookEvent = new EventEmitter<Book>();
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  deleteBook(book: Book){
+    this.deleteBookEvent.emit(book);
   }
 
 }
