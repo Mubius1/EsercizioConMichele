@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'esercizioConMichele';
+  formStatus: boolean = false;
+
+  showForm(x: boolean){
+    this.formStatus = x;
+  }
 }
+
