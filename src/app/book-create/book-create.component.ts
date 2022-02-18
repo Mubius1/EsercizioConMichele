@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-book-create',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./book-create.component.css']
 })
 export class BookCreateComponent implements OnInit {
-
+  @ViewChild('mioForm') form!:any;
   constructor() { }
 
   ngOnInit(): void {
@@ -17,4 +17,8 @@ export class BookCreateComponent implements OnInit {
     'fantasy',
     'giallo'
   ]
+  submitform(){
+   console.log(this.form.value)
+  }
 }
+
