@@ -1,3 +1,7 @@
 .evidenza{
     background-color: yellow;
 }
+.tableContainer{
+    display: flex;
+    justify-content: center;
+}

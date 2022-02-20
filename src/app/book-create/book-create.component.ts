@@ -20,7 +20,7 @@ export class BookCreateComponent implements OnInit {
     'giallo'
   ]
   submitform(){
-   console.log(this.form.value);
+   console.log(this.form);
    this.createBookEvent.emit(this.form.value);
   }
 }

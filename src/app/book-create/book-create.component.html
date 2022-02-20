@@ -1,29 +1,39 @@
-<form #mioForm="ngForm" (ngSubmit)="submitform()">
-    <div class="mb-3">
-      <label for="titolo" class="form-label">Titolo</label>
-      <input type="text" class="form-control" id="titolo" ngModel name="titolo">      
-    </div>
-    <div class="mb-3">
-      <label for="autore" class="form-label">Autore</label>
-      <input type="text" class="form-control" id="autore"ngModel name="autore">      
-    </div>
-    <div class="mb-3">
-      <label for="casaEd" class="form-label">Casa Editrice</label>
-      <input type="text" class="form-control" id="casaEd"ngModel name="casaEditrice">      
-    </div>
-    <div class="mb-3">
-      <label for="genere" class="form-label">Genere</label>
-      <select name="genere" id="genere"ngModel name="genere">
-          <option [value]="type" *ngFor="let type of generi">
-              {{type}}
-          </option>
-      </select>
-    </div>
-    <div class="mb-3">
-        <label for="prezzo" class="form-label">Prezzo</label>
-        <input type="number" class="form-control" id="prezzo"ngModel name="prezzo">      
-    </div>
-    
+<div class="formContainer">
+  <form #mioForm="ngForm" (ngSubmit)="submitform()">
+      <div class="mb-3">
+        <label for="titolo" class="form-label">Titolo</label>
+        <input type="text" class="form-control" id="titolo" ngModel name="titolo" required #nameField="ngModel">
+        <p *ngIf="nameField.touched && nameField.invalid" class="text-danger" ><small>Il campo é richiesto</small> </p> 
+      </div>
+      <div class="mb-3">
+        <label for="autore" class="form-label">Autore</label>
+        <input type="text" class="form-control" id="autore"ngModel name="autore"required #AuthorField="ngModel">
+        <p *ngIf="AuthorField.touched && AuthorField.invalid" class="text-danger" ><small>Il campo é richiesto</small></p>
+      </div>
+      <div class="mb-3">
+        <label for="casaEd" class="form-label">Casa Editrice</label>
+        <input type="text" class="form-control" id="casaEd"ngModel name="casaEditrice"required #EditorsField="ngModel">
+        <p *ngIf="EditorsField.touched && EditorsField.invalid" class="text-danger" ><small>Il campo é richiesto</small></p>
+   
+      </div>
+      <div class="mb-3 d-flex justify-content-md-between">
+        <label for="genere" class="form-label">Genere </label>
+        <select name="genere" id="genere"ngModel name="genere"required #genereField="ngModel">
+            <option [value]="type" *ngFor="let type of generi">
+                {{type}}
+            </option>
+        </select>
+        <p *ngIf="genereField.touched && genereField.invalid" class="text-danger" ><small>Il campo é richiesto</small></p>
 
-    <button type="submit" class="btn btn-primary">Aggiungi</button>
-  </form>
+      </div>
+      <div class="mb-3">
+          <label for="prezzo" class="form-label">Prezzo</label>
+          <input type="number" class="form-control" id="prezzo"ngModel name="prezzo"required #priceField="ngModel">
+          <p *ngIf="priceField.touched && priceField.invalid" class="text-danger" ><small>Il campo é richiesto</small></p>      
+      </div>
+      
+  
+      <button type="submit" class="btn btn-primary">Aggiungi</button>
+    </form>
+    <!-- {{mioForm.valid}}  per controlla lo status--> 
+</div>
