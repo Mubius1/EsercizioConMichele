@@ -16,11 +16,18 @@ export class AppComponent {
 
   books:Book []=[
     {
-      titolo: "titolo a caso",
-      autore: "salvo",
-      casaEditrice: "sanpaolo",
+      titolo: "La divina commedia",
+      autore: "Dante Alighieri",
+      casaEditrice: "Giunti",
       genere: "giallo",
-      prezzo: 20
+      prezzo: "20"
+    },
+    {
+      titolo: "Promessi Sposi",
+      autore: "Alessandro Manzoni",
+      casaEditrice: "Mondadori",
+      genere:"fantasy",
+      prezzo: "20"
     }
   ]
 
@@ -32,6 +39,10 @@ export class AppComponent {
     let index = this.books.indexOf(book);
     this.books.splice(index, 1);
 
+  }
+  deleteAllBooks(book: Book){
+    let length = this.books.length
+    this.books.splice(0, length);
   }
 }
 

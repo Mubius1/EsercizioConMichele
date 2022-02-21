@@ -5,3 +5,11 @@
     display: flex;
     justify-content: center;
 }
+th {
+    padding: 40px 0;
+  }
+
+  table {
+    border-collapse: separate;
+    border-spacing: 80px 0;
+  }

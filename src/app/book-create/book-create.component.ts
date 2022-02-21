@@ -15,9 +15,15 @@ export class BookCreateComponent implements OnInit {
   }
 
   generi: String [] = [
-    'horror',
-    'fantasy',
-    'giallo'
+    'Avventura e Azione',
+    "Biografia e Autobiografia",
+    'Horror',
+    'Fantasy',
+    'Fantascienza',
+    'Giallo',
+    "Romanzo Storico",
+    'Thriller',
+    'Umoristico'
   ]
   submitform(){
    console.log(this.form);

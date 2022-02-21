@@ -2,6 +2,6 @@
 <div [ngClass]="{'show': formStatus == true, 'noshow': formStatus == false}">
     <app-book-create (createBookEvent)="createBook($event)"></app-book-create>
 </div>
-<app-book-list [books]="books" (deleteBookEvent)="deleteBook($event)"></app-book-list>
+<app-book-list [books]="books" (deleteBookEvent)="deleteBook($event)" (deleteAllBooksEvent)="deleteAllBooks($event)" ></app-book-list>
   
   

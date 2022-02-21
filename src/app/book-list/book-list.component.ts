@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Book } from '../models/Book';
 
+
+
 @Component({
   selector: 'app-book-list',
   templateUrl: './book-list.component.html',
@@ -9,6 +11,7 @@ import { Book } from '../models/Book';
 export class BookListComponent implements OnInit {
   @Input() books!:Book[];
   @Output() deleteBookEvent = new EventEmitter<Book>();
+  @Output() deleteAllBooksEvent = new EventEmitter<Book>();
   constructor() { }
 
   ngOnInit(): void {
@@ -17,5 +20,12 @@ export class BookListComponent implements OnInit {
   deleteBook(book: Book){
     this.deleteBookEvent.emit(book);
   }
+  deleteAllBooks(book:Book){
+    this.deleteAllBooksEvent.emit(book)
+  }
+  stampa(){
+    console.log("ciao")
+  }
 
 }
+

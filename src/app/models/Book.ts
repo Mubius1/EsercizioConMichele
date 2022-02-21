@@ -3,5 +3,5 @@ export interface Book {
     autore: String;
     casaEditrice: String;
     genere: String;
-    prezzo: Number;
+    prezzo: any;
 }

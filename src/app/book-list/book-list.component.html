@@ -2,31 +2,43 @@
     <table>
         <thead>
             <tr>
-                <th>Titolo</th>
-                <th>Autore</th>
-                <th>Casa Editrice</th>
-                <th>Genere</th>
-                <th>Prezzo</th>
+                <th>Titolo
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Sort_both.svg" [appSort]="books" data-order="desc" data-name="titolo" alt="">
+                </th>
+                <th>Autore
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Sort_both.svg" [appSort]="books" data-order="desc" data-name="autore">
+                </th>
+                <th>Casa Editrice
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Sort_both.svg" [appSort]="books" data-order="desc" data-name="casaEditrice">
+                </th>
+                <th>Genere
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Sort_both.svg"  [appSort]="books" data-order="desc" data-name="genere">
+                </th>
+                <th>Prezzo
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Sort_both.svg"  [appSort]="books" data-order="desc" data-name="prezzo">
+                </th>
                 <th>Azioni</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let book of books"[ngClass]="{'evidenza': book.prezzo>50}">
+            <tr *ngFor="let book of books">
                 <td>{{book.titolo}}</td>
                 <td>{{book.autore}}</td>
                 <td>{{book.casaEditrice}}</td>
                 <td>{{book.genere}}</td>
-                <td>{{book.prezzo}}</td>
+                <td [ngClass]="{'evidenza': book.prezzo >50}">{{book.prezzo |currency:'EUR'}}</td>
+                
+                
                 <td>
-                    <!-- Button trigger modal -->
-<button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Elimina
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
+                  <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Elimina
+                  </button>
+                  
+                  <!-- Modal -->
+                  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
       <div class="modal-header">
         <h5 id="exampleModalLabel">Conferma Eliminazione</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -37,14 +49,17 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="deleteBook(book)">Cancella</button>
+        <tr><button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="deleteAllBooks(book)">Elimina tutto</button></tr>
       </div>
     </div>
   </div>
 </div>
-                </td>
-            </tr>
-            <tr *ngIf="books.length == 0">
-                <td colspan="6" style="text-align: center;">Non ci sono libri</td>
-            </tr>
-        </tbody>
-    </table>
+</td>
+</tr>
+
+<tr *ngIf="books.length == 0">
+  <td colspan="6" style="text-align: center;">Non ci sono libri</td>
+</tr>
+</tbody>
+
+</table>
